@@ -1,0 +1,57 @@
+class Employee: 
+
+    def __init__(self, input, output):
+        self.input = input
+        self.output = output
+
+    def Emp_count(self):
+        print(f"There are " + str(len(self.data)) + " Employees")
+    
+    def Emp_print(self):
+    
+        with open(self.input, "r") as file:
+            text = file.read().split('\n')
+            for i in range(len(text)):
+                self.data = text
+                data = text[i].split(',')
+                print("##############################")
+                print(f'Personal Number: {data[0]}')
+                print(f'Username: {data[1]}')
+                print(f'Name: {data[2]}')
+                print(f'Surname: {data[3]}')
+                print(f'Employment start: {data[4]}')
+                print("##############################")
+
+                with open(self.output, "w") as file2:
+                    for i in range(len(text)):
+                        data = text[i].split(',')
+                        file2.write("##############################\n")
+                        file2.write(f'Personal number: {data[0]}\n')
+                        file2.write(f'Username: {data[1]}\n')
+                        file2.write(f'Name: {data[2]}\n')
+                        file2.write(f'Surname: {data[3]}\n')
+                        file2.write(f'Employment start: {data[4]}\n')
+                        file2.write("##############################\n")
+
+    def Emp_new(self):
+        with open(self.output, "a") as file2:
+            file2.write("##############################\n")
+            file2.write(f'Personal number: {input("Personal number: ")}\n')
+            file2.write(f'Username: {input("Username: ")}\n')
+            file2.write(f'Name: {input("Name: ")}\n')
+            file2.write(f'Surname: {input("Surname: ")}\n')
+            file2.write(f'Employment start: {input("Employment start: ")}\n')
+            file2.write("##############################\n")
+
+emp1 = Employee("input.txt", "output.txt")
+emp1.Emp_print()
+emp1.Emp_count()
+while not False:
+    choice = input(
+        " \nAdd new Employee 1\nEnd Program 2")
+    if choice.lower() == "1":
+        emp1.Emp_new()
+    else:
+        quit()
+#Objekt je konkretny prvok triedy, s jednoznacne danymi vlastnostami
+#Je to štrukturovaný dátový typ charakterizovaný vlastnstami a schopnostami
